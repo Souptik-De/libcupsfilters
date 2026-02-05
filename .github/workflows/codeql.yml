@@ -31,9 +31,12 @@ jobs:
       - name: Update build environment
         run: sudo apt-get update --fix-missing -y
 
-      # - name: Install prerequisites
-      #   run: sudo apt-get install -y avahi-daemon cppcheck libavahi-client-dev libpng-dev libssl-dev libusb-1.0-0-dev zlib1g-dev
-
+      - name: Install prerequisite
+        run: |
+               sudo apt-get install -y avahi-daemon libavahi-client-dev libssl-dev libpam-dev libusb-1.0-0-dev zlib1g-dev
+               sudo apt install autotools-dev autopoint cmake libtool pkg-config libcups2-dev libexif-dev liblcms2-dev libfontconfig1-dev
+               sudo apt install libfreetype6-dev build-essential qtbase5-dev qtchooser libcairo2-dev libboost-system-dev libboost-thread-dev libboost-program-options-dev libboost-test-dev libopenjp2-7-dev liblcms2-dev libjpeg-dev
+               sudo apt install -y libjxl-dev
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:
